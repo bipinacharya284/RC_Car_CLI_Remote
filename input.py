@@ -1,7 +1,8 @@
 from colorama import init, Fore, Style
 import transmitter
 import msvcrt
-
+from configs import ConfigHandler
+import socket
 
 init()
 
@@ -19,27 +20,27 @@ class ControllerInputHandler:
             return char.decode("utf-8")
 
     # to get users controller input
-    def get_controller_input(self):
-        sock = transmitter.setup_config()
+    def get_controller_input(self, sock):
         print(Fore.BLUE + "Keyboard Controller Activated (q to quit):")
         while True:
             user_input = self.get_char_input()
 
             if user_input.lower() == "w":
-                transmitter.send_message(sock, "F")
                 print(Fore.GREEN + "Forward")
+                transmitter.send_message(sock, "F")
 
             if user_input.lower() == "s":
-                transmitter.send_message(sock, "B")
                 print(Fore.RED + "Backward")
+                transmitter.send_message(sock, "B")
 
             if user_input.lower() == "a":
-                transmitter.send_message(sock, "L")
                 print(Fore.MAGENTA + "Left")
+                transmitter.send_message(sock, "L")
 
             if user_input.lower() == "d":
-                transmitter.send_message(sock, "R")
                 print(Fore.YELLOW + "Right")
+                transmitter.send_message(sock, "R")
 
             if user_input.lower() == "q":
+                transmitter.send_message(sock, "Q")
                 break
