@@ -1,7 +1,7 @@
 # RC_Car_CLI_Remote
 This project is made to control Wifi based RC car. Only CLI interface is developed till now.
 
-<h3>Dependencies required for contributing to my project:<h3>
+<h3>Dependencies required for contributing to my project:</h3>
     &nbsp;-> pip install pyinstaller // For making standalone .exe file<br>
         &nbsp;&nbsp;-> pyinstaller --onefile scriptFile.py<br>
     &nbsp;-> pip install colorama // For colored text<br>
