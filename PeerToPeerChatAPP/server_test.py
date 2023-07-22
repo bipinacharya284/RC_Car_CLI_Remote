@@ -16,10 +16,13 @@ def start_server():
 
     while True:
         data = conn.recv(1024)
-        print(f"Received from client: {data.decode()}")
-
-        message = "."
-        conn.sendall(message.encode())
+        if data:
+            print(f"Received from client: {data.decode()}")
+            message = "."
+            conn.sendall(message.encode())
+            if message == "Q":
+                conn.close()
+                break
 
 
 if __name__ == "__main__":
